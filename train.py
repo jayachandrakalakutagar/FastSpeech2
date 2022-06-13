@@ -185,6 +185,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "-t", "--train_config", type=str, required=True, help="path to train.yaml"
     )
+    parser.add_argument("--pretrained_model",type=int,default=0)
     args = parser.parse_args()
 
     # Read Config
