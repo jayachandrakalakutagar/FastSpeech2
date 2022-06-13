@@ -19,6 +19,14 @@ def get_model(args, configs, device, train=False):
         )
         ckpt = torch.load(ckpt_path)
         model.load_state_dict(ckpt["model"])
+        
+    if args.pretrained_model:
+        ckpt_path = os.path.join(
+           "/home/ubuntu",
+            "{}.pth.tar".format(args.pretrained_model),
+        )
+        ckpt = torch.load(ckpt_path)
+        model.load_state_dict(ckpt["model"])
 
     if train:
         scheduled_optim = ScheduledOptim(
